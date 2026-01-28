@@ -1,0 +1,231 @@
+/* 
+  GlimMarket Page Assistant
+  UI styles only
+  Safe to modify for branding and layout
+*/
+
+/* isolate plugin root only (launcher is outside root) */
+#gm-pa-root { all: initial; }
+
+:root{
+  --gm-pa-right: 18px;
+  --gm-pa-bottom: 18px;
+  --gm-pa-kb: 0px; /* set by JS when keyboard is open */
+}
+
+/* Panel (bottom-right) */
+.gm-pa {
+  position: fixed;
+  right: var(--gm-pa-right);
+  bottom: calc(env(safe-area-inset-bottom, 0px) + var(--gm-pa-bottom) + var(--gm-pa-kb));
+  width: 360px;
+  max-width: calc(100vw - (var(--gm-pa-right) * 2));
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  z-index: 999999;
+}
+
+/* Card */
+.gm-pa-card {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.12);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 18px 60px rgba(0,0,0,.18);
+}
+
+/* Header */
+.gm-pa-header {
+  padding: 10px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #01796F;
+  color: #fff;
+}
+
+.gm-pa-title {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.gm-pa-header strong {
+  font-size: 14px;
+  letter-spacing: .2px;
+}
+
+.gm-pa-subtitle {
+  font-size: 11px;
+  opacity: .88;
+}
+
+.gm-pa-header button {
+  background: transparent;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  padding: 6px 8px;
+  border-radius: 10px;
+  opacity: .92;
+}
+
+.gm-pa-header button:hover {
+  background: rgba(255,255,255,.14);
+  opacity: 1;
+}
+
+/* Body */
+.gm-pa-body {
+  padding: 10px 12px;
+  max-height: 46vh;
+  overflow: auto;
+  font-size: 14px;
+  line-height: 1.35;
+  color: #111;
+}
+
+.gm-pa-row { margin: 8px 0; }
+
+.gm-pa-user {
+  background: rgba(1,121,111,.10);
+  border: 1px solid rgba(1,121,111,.18);
+  padding: 8px 10px;
+  border-radius: 10px;
+  white-space: pre-wrap;
+}
+
+.gm-pa-assistant {
+  background: rgba(0,0,0,.06);
+  border: 1px solid rgba(0,0,0,.08);
+  padding: 8px 10px;
+  border-radius: 10px;
+  white-space: pre-wrap;
+}
+
+/* Input */
+.gm-pa-input {
+  display: flex;
+  gap: 8px;
+  padding: 10px 12px;
+  border-top: 1px solid rgba(0,0,0,.10);
+  background: rgba(255,255,255,.95);
+}
+
+.gm-pa-input input {
+  flex: 1;
+  padding: 10px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,.18);
+  font-size: 14px;
+  outline: none;
+}
+
+.gm-pa-input input:focus {
+  border-color: rgba(1,121,111,.55);
+  box-shadow: 0 0 0 3px rgba(1,121,111,.18);
+}
+
+.gm-pa-input button {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 0;
+  background: #03524B;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  transition: transform .12s ease, background .12s ease;
+}
+
+.gm-pa-input button:hover {
+  background: #02433D;
+  transform: translateY(-1px);
+}
+
+.gm-pa-input button:active {
+  transform: translateY(0px);
+}
+
+/* Chips */
+.gm-pa-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.gm-pa-chip {
+  font-size: 12px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(1,121,111,.35);
+  background: rgba(1,121,111,.10);
+  color: #03524B;
+  cursor: pointer;
+  transition: background .15s ease, border-color .15s ease, transform .15s ease;
+}
+
+.gm-pa-chip:hover {
+  background: rgba(1,121,111,.18);
+  border-color: rgba(1,121,111,.55);
+  transform: translateY(-1px);
+}
+
+/* Minimized state: hide panel */
+#gm-pa-root.gm-pa-minimized .gm-pa {
+  display: none;
+}
+
+/* Launcher (bottom-right) */
+.gm-pa-launcher {
+  position: fixed;
+  right: var(--gm-pa-right);
+  bottom: calc(env(safe-area-inset-bottom, 0px) + var(--gm-pa-bottom));
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 14px;
+  border-radius: 999px;
+  border: 0;
+  background: #01796F;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: .5px;
+  cursor: pointer;
+  box-shadow: 0 12px 40px rgba(0,0,0,.25), 0 0 0 3px rgba(1,121,111,.18);
+  z-index: 999998;
+  transition: transform .12s ease, background .12s ease, box-shadow .12s ease;
+}
+
+.gm-pa-launcher:hover {
+  background: #025E56;
+  box-shadow: 0 14px 48px rgba(0,0,0,.28), 0 0 0 4px rgba(1,121,111,.22);
+  transform: translateY(-1px);
+}
+
+.gm-pa-launcher-icon { display: inline-flex; align-items: center; justify-content: center; }
+.gm-pa-icon { display: block; }
+.gm-pa-launcher-text { font-size: 12px; }
+
+/* Hide launcher while panel is open */
+.gm-pa-launcher.gm-pa-hidden {
+  display: none !important;
+}
+
+/* Mobile tweaks */
+@media (max-width: 480px) {
+  :root {
+    --gm-pa-right: 10px;
+    --gm-pa-bottom: 10px;
+  }
+
+  .gm-pa {
+    width: calc(100vw - 20px);
+    max-width: calc(100vw - 20px);
+  }
+
+  .gm-pa-body {
+    max-height: 52vh;
+  }
+}
