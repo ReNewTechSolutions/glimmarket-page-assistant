@@ -1,5 +1,13 @@
-# GlimMarket AI Page Assistant  
+# GlimMarket AI Page Assistant
+
+A page-aware WordPress assistant prototype powered by a Node.js backend and OpenAI API.
 Prototype Handoff Package
+
+![Node.js](https://img.shields.io/badge/Node.js-Backend-green)
+![OpenAI](https://img.shields.io/badge/OpenAI-API-black)
+![WordPress](https://img.shields.io/badge/WordPress-Plugin-blue)
+![Status](https://img.shields.io/badge/status-prototype-orange)
+![License](https://img.shields.io/badge/license-private-lightgrey)
 
 This repository contains a **working prototype** of the GlimMarket AI Page Assistant.  
 It is provided as a **handoff package** so GlimMarket’s internal or external team can continue development, deployment, and long-term ownership.
